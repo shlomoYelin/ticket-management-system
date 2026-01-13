@@ -1,10 +1,12 @@
 using Microsoft.EntityFrameworkCore;
-using TicketManagement.Infrastructure.Data;
+using TicketApi.Endpoints;
+using TicketManagement.Application.DependencyInjection;
+using TicketManagement.Infrastructure;
+using TicketManagement.Infrastructure.DependencyInjection;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<TicketsDbContext>(options =>
-    options.UseInMemoryDatabase("TicketsDb"));
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -22,6 +24,9 @@ builder.Services.AddCors(options =>
     });
 });
 
+builder.Services
+    .AddInfrastructure()
+    .AddApplication();
 
 var app = builder.Build();
 
@@ -36,7 +41,7 @@ app.UseHttpsRedirection();
 
 app.UseCors("ClientCors");
 
-
+app.MapTicketsEndpoints();
 
 
 app.Run();

@@ -16,4 +16,8 @@
     <ProjectReference Include="..\TicketManagement.Domain\TicketManagement.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\Ticket\Command\" />
+  </ItemGroup>
+
 </Project>

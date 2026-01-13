@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TicketManagement.Domain.Models;
+using TicketManagement.Domain.Entities;
 
-namespace TicketManagement.Infrastructure.Data;
+namespace TicketManagement.Infrastructure;
 
 public class TicketsDbContext : DbContext
 {

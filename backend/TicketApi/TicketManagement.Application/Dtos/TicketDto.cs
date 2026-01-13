@@ -1,6 +1,7 @@
-﻿namespace TicketManagement.Domain.Models
+﻿namespace TicketManagement.Application.Dtos
 {
-    public record Ticket(
+    public record TicketDto
+    (
     int TicketId,
     int UserId,
     string Subject,
