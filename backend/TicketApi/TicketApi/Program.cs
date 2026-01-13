@@ -1,7 +1,5 @@
-using Microsoft.EntityFrameworkCore;
 using TicketApi.Endpoints;
 using TicketManagement.Application.DependencyInjection;
-using TicketManagement.Infrastructure;
 using TicketManagement.Infrastructure.DependencyInjection;
 
 

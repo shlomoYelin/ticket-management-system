@@ -1,4 +1,4 @@
-﻿using TicketManagement.Application.Dtos;
+using TicketManagement.Application.Dtos;
 using TicketManagement.Domain.Models;
 
 namespace TicketManagement.Application.Services.Interfaces
@@ -6,5 +6,6 @@ namespace TicketManagement.Application.Services.Interfaces
     public interface ITicketService
     {
         ResultModel<IEnumerable<TicketDto>> GetAllTickets();
+        ResultModel<TicketDto> CreateTicket(CreateTicketRequest request);
     }
 }

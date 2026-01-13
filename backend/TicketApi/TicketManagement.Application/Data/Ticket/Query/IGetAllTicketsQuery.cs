@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-namespace TicketManagement.Application.Data.Ticket.Query
+﻿namespace TicketManagement.Application.Data.Ticket.Query
 {
     public interface IGetAllTicketsQuery
     {
