@@ -1,6 +1,7 @@
 using Microsoft.Extensions.Logging;
 using TicketManagement.Application.Dtos;
 using TicketManagement.Application.Mappings;
+using TicketManagement.Application.Models;
 using TicketManagement.Application.Validators.Interfaces;
 using TicketManagement.Application.WorkFlows.Interfaces;
 using TicketManagement.Application.WorkFlows.Tasks.Interfaces;

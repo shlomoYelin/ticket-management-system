@@ -17,6 +17,8 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IGetAllTicketsQuery, GetAllTicketsQuery>();
         services.AddScoped<IGetNextTicketIdQuery, GetNextTicketIdQuery>();
         services.AddScoped<ICreateTicketCommand, CreateTicketCommand>();
+        services.AddScoped<IGetTicketByIdQuery, GetTicketByIdQuery>();
+        services.AddScoped<IUpdateTicketCommand, UpdateTicketCommand>();
 
         return services;
     }

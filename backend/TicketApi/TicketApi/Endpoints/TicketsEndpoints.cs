@@ -1,4 +1,4 @@
-﻿using TicketManagement.Application.Dtos;
+﻿using TicketManagement.Application.Models;
 using TicketManagement.Application.Services.Interfaces;
 
 namespace TicketApi.Endpoints
@@ -20,6 +20,12 @@ namespace TicketApi.Endpoints
             {
                 var result = service.CreateTicket(request);
                 
+                return Results.Ok(result);
+            });
+
+            ticketsGroup.MapPost("/CloseTicket", (CloseTicketRequest request, ITicketService service) =>
+            {
+                var result = service.CloseTicket(request);
                 return Results.Ok(result);
             });
 

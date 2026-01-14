@@ -1,4 +1,4 @@
-using TicketManagement.Application.Dtos;
+using TicketManagement.Application.Models;
 using TicketManagement.Application.Validators.Models;
 
 namespace TicketManagement.Application.Validators.Interfaces

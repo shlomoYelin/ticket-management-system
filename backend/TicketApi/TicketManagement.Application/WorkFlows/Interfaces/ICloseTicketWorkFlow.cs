@@ -1,11 +1,10 @@
-using TicketManagement.Application.Dtos;
 using TicketManagement.Application.Models;
 using TicketManagement.Domain.Models;
 
 namespace TicketManagement.Application.WorkFlows.Interfaces
 {
-    public interface ICreateTicketWorkFlow
+    public interface ICloseTicketWorkFlow
     {
-        ResultModel<TicketDto> Create(CreateTicketRequest request);
+        ResultModel<object> Close(CloseTicketRequest request);
     }
 }

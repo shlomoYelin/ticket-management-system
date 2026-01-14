@@ -14,12 +14,15 @@ namespace TicketManagement.Application.DependencyInjection
     {
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
-            services.AddScoped<IGetAllTicketsWorkFlow,GetAllTicketsWorkFlow>();
+            services.AddScoped<IGetAllTicketsWorkFlow, GetAllTicketsWorkFlow>();
             services.AddScoped<ICreateTicketWorkFlow, CreateTicketWorkFlow>();
+            services.AddScoped<ICloseTicketWorkFlow, CloseTicketWorkFlow>();
 
             services.AddScoped<IGetAllTicketsTask, GetAllTicketsTask>();
             services.AddScoped<ICreateTicketTask, CreateTicketTask>();
             services.AddScoped<IGetNextTicketIdTask, GetNextTicketIdTask>();
+            services.AddScoped<IGetTicketByIdTask, GetTicketByIdTask>();
+            services.AddScoped<ICloseTicketTask, CloseTicketTask>();
 
             services.AddScoped<ICreateTicketRequestValidator, CreateTicketRequestValidator>();
 
