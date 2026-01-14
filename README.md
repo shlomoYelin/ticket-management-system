@@ -12,22 +12,42 @@
 - .NET 8.0 SDK
 - Node.js (גרסה 18+)
 - npm
+- Docker (אופציונלי - להרצה עם Docker)
 
 ## הוראות התקנה והפעלה
 
-### Backend
+### הרצה עם Docker (Backend)
+
+להרצת ה-Backend עם Docker:
+
+```bash
+cd backend/TicketApi
+docker build -t ticket-api .
+docker run -d -p 7203:8080 --name ticket-api-container ticket-api
+```
+
+**פקודות שימושיות:**
+- צפייה בלוגים: `docker logs ticket-api-container`
+- עצירת הקונטיינר: `docker stop ticket-api-container`
+- הפעלת הקונטיינר: `docker start ticket-api-container`
+- הסרת הקונטיינר: `docker rm -f ticket-api-container`
+
+**הערה:** בעת הרצה עם Docker, ה-API זמין ב-`http://localhost:7203` (HTTP בלבד).
+
+### הרצה רגילה (ללא Docker)
+
+#### Backend
 
 ```bash
 cd backend/TicketApi/TicketApi
 dotnet restore
-dotnet run --launch-profile https```
-
+dotnet run --launch-profile https
+```
 ה-API זמין ב:
-- HTTP: `http://localhost:5163`
-- HTTPS: `https://localhost:7203`
-- Swagger: `https://localhost:7203/swagger`
+- HTTP: `http://localhost:7203`
+- Swagger: `http://localhost:7203/swagger`
 
-### Frontend
+#### Frontend
 
 ```bash
 cd frontend/ticket-ui

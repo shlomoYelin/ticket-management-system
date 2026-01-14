@@ -1,0 +1,44 @@
+# Build outputs
+**/bin/
+**/obj/
+**/out/
+
+# Visual Studio / Rider
+**/.vs/
+**/.idea/
+*.user
+*.suo
+*.slnx
+
+# Git
+**/.git/
+**/.gitignore
+**/.gitattributes
+
+# Docker
+**/Dockerfile*
+**/.dockerignore
+
+# Environment files
+**/.env
+**/.env.local
+**/.env.*.local
+
+# Logs
+**/*.log
+
+# OS files
+**/.DS_Store
+**/Thumbs.db
+
+# Test files
+**/*.Tests/
+**/test/
+**/tests/
+
+# Documentation
+**/README.md
+**/LICENSE
+
+# HTTP client files
+**/*.http
