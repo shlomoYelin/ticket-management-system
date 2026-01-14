@@ -57,7 +57,6 @@ ng serve
 
 האפליקציה זמינה ב: `http://localhost:4200`
 
-**הערה**: ודא שה-Backend רץ לפני הפעלת ה-Frontend.
 
 ## API Endpoints
 
