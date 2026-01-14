@@ -41,9 +41,9 @@ ng serve
 
 ## API Endpoints
 
-- `GET /tickets/GetAllTickets` - קבלת כל הכרטיסים
-- `POST /tickets/CreateTicket` - יצירת כרטיס חדש
-- `POST /tickets/CloseTicket` - סגירת כרטיס
+- `GET /tickets/GetAllTickets` - שליפת כל הפניות
+- `POST /tickets/CreateTicket` - יצירת פנייה חדשה
+- `POST /tickets/CloseTicket` - סגירת פנייה
 
 לצפייה בתיעוד מלא: `https://localhost:7203/swagger`
 
