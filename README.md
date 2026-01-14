@@ -32,7 +32,7 @@ dotnet run --launch-profile https```
 ```bash
 cd frontend/ticket-ui
 npm install
-npm start
+ng serve
 ```
 
 האפליקציה זמינה ב: `http://localhost:4200`
