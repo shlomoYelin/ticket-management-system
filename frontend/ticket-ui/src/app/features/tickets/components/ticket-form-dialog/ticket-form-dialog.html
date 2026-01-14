@@ -1,0 +1,75 @@
+<h2 mat-dialog-title>יצירת פנייה חדשה</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="form">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>מספר משתמש</mat-label>
+      <input 
+        matInput 
+        type="number" 
+        formControlName="userId"
+        placeholder="הזן מספר משתמש">
+      @if (userId?.hasError('required') && userId?.touched) {
+        <mat-error>מספר משתמש הוא שדה חובה</mat-error>
+      }
+      @if (userId?.hasError('min') && userId?.touched) {
+        <mat-error>מספר משתמש חייב להיות גדול מ-0</mat-error>
+      }
+      @if (userId?.hasError('pattern') && userId?.touched) {
+        <mat-error>מספר משתמש חייב להיות מספר שלם</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>נושא</mat-label>
+      <input 
+        matInput 
+        formControlName="subject"
+        placeholder="הזן נושא הפנייה">
+      @if (subject?.hasError('required') && subject?.touched) {
+        <mat-error>נושא הוא שדה חובה</mat-error>
+      }
+      @if (subject?.hasError('minlength') && subject?.touched) {
+        <mat-error>נושא חייב להכיל לפחות 3 תווים</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>תיאור</mat-label>
+      <textarea 
+        matInput 
+        formControlName="description"
+        rows="4"
+        placeholder="הזן תיאור מפורט של הפנייה"></textarea>
+      @if (description?.hasError('required') && description?.touched) {
+        <mat-error>תיאור הוא שדה חובה</mat-error>
+      }
+      @if (description?.hasError('minlength') && description?.touched) {
+        <mat-error>תיאור חייב להכיל לפחות 10 תווים</mat-error>
+      }
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button 
+    mat-button 
+    (click)="onCancel()"
+    [disabled]="isSubmitting()">
+    ביטול
+  </button>
+  <button 
+    mat-raised-button 
+    color="primary"
+    (click)="onSubmit()"
+    [disabled]="form.invalid || isSubmitting()">
+    @if (isSubmitting()) {
+      <mat-progress-spinner 
+        mode="indeterminate" 
+        diameter="20"
+        class="button-spinner">
+      </mat-progress-spinner>
+    }
+    שמירה
+  </button>
+</mat-dialog-actions>

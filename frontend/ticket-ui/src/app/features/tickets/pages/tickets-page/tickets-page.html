@@ -1,1 +1,61 @@
-<p>tickets-page works!</p>
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>ניהול פניות</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="actions-section">
+        <button 
+          mat-raised-button 
+          color="primary" 
+          (click)="openCreateDialog()"
+          class="add-button">
+          <mat-icon>add</mat-icon>
+          הוספת פנייה
+        </button>
+
+        <div class="filter-section">
+          <div class="filter-label">
+            <mat-icon class="filter-icon">filter_list</mat-icon>
+            <span>סינון :</span>
+          </div>
+          <mat-button-toggle-group 
+            [value]="filter()" 
+            (change)="onFilterChange($event.value)"
+            class="filter-group">
+            <mat-button-toggle value="all">הכל</mat-button-toggle>
+            <mat-button-toggle value="open">פתוחות</mat-button-toggle>
+            <mat-button-toggle value="closed">סגורות</mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+      </div>
+
+      <mat-divider class="section-divider"></mat-divider>
+
+      <div class="tickets-section">
+        @if (isLoading()) {
+          <div class="loading-container">
+            <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+          </div>
+        } @else if (filteredTickets().length === 0) {
+          <div class="empty-state">
+            @if (filter() === 'all') {
+              <p>אין פניות להצגה. צור פנייה ראשונה!</p>
+            } @else if (filter() === 'open') {
+              <p>אין פניות פתוחות</p>
+            } @else {
+              <p>אין פניות סגורות</p>
+            }
+          </div>
+        } @else {
+          <app-ticket-list 
+            [tickets]="filteredTickets()"
+            [isLoading]="isLoading()"
+            (ticketClosed)="onTicketClosed($event)">
+          </app-ticket-list>
+        }
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

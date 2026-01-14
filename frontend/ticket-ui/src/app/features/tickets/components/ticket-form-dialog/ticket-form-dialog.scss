@@ -1,0 +1,49 @@
+mat-dialog-title {
+  margin-bottom: 24px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+mat-dialog-content {
+  min-width: 400px;
+  padding: 24px;
+  overflow: visible;
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+mat-form-field {
+  display: block;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+mat-dialog-actions {
+  padding: 16px 24px;
+  margin: 0;
+  gap: 8px;
+}
+
+.button-spinner {
+  display: inline-block;
+  margin-left: 8px;
+}
+
+@media (max-width: 600px) {
+  mat-dialog-content {
+    min-width: auto;
+    padding: 16px;
+  }
+}

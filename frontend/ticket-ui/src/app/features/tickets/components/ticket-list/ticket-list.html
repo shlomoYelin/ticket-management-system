@@ -1,1 +1,52 @@
-<p>ticket-list works!</p>
+@if (isLoading) {
+  <div class="loading-container">
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+  </div>
+} @else if (tickets.length === 0) {
+  <div class="empty-state">
+    <p>אין פניות להצגה</p>
+  </div>
+} @else {
+  <div class="tickets-grid">
+    @for (ticket of tickets; track ticket.ticketId) {
+      <mat-card class="ticket-card">
+        <mat-card-content class="ticket-content">
+          <div class="ticket-info" [class.closed]="ticket.isClosed">
+            <h3 class="ticket-subject">{{ ticket.subject }}</h3>
+            <p class="ticket-description">{{ ticket.description }}</p>
+          </div>
+        </mat-card-content>
+        <div class="ticket-footer">
+          <div class="ticket-actions">
+            <span 
+              class="status-badge"
+              [class.status-open]="!ticket.isClosed"
+              [class.status-closed]="ticket.isClosed">
+              {{ ticket.isClosed ? 'סגורה' : 'פתוחה' }}
+            </span>
+            
+            @if (!ticket.isClosed) {
+              <button 
+                mat-stroked-button 
+                color="primary"
+                (click)="closeTicket(ticket.ticketId)"
+                [disabled]="closingTicketId === ticket.ticketId"
+                class="close-button">
+                @if (closingTicketId === ticket.ticketId) {
+                  <mat-progress-spinner 
+                    mode="indeterminate" 
+                    diameter="16"
+                    class="button-spinner">
+                  </mat-progress-spinner>
+                } @else {
+                  <mat-icon>check_circle</mat-icon>
+                }
+                <span>סגור פנייה</span>
+              </button>
+            }
+          </div>
+        </div>
+      </mat-card>
+    }
+  </div>
+}
